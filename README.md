@@ -1,7 +1,7 @@
 # Atlal - AR Historical Exploration (Prototype)
 
 <div align="center">
-  <img src="images/mockup.png" width="400" alt="Atlal App Preview">
+  <img src="https://files.catbox.moe/4wdvr1.png" width="400" alt="Atlal App Preview">
 </div>
 
 ### About The Project
