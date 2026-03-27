@@ -1,27 +1,25 @@
-# Atlal (أطلال) - AR Historical Exploration
+# Atlal - AR Historical Exploration (Prototype)
+
 <div align="center">
-  <img src="images/quba_card.png" width="300" alt="Atlal Logo">
+  <img src="images/mockup.png" width="400" alt="Atlal App Preview">
 </div>
 
-### 🏛️ About The Project
-**Atlal (أطلال)** is a location-based Augmented Reality (AR) application that acts as a "Time Portal". 
-It allows users to visit real-world historical landmarks and use their camera to see a 3D reconstruction of the site exactly as it looked hundreds of years ago.
+### About The Project
+***Note: This application is currently a prototype.***
+Atlal is a mobile web application that lets users explore historical locations using Augmented Reality (AR). By pointing your phone's camera at specific sites, you can see a historical reconstruction of the landmark. In future releases, the current 360-degree photos will be completely replaced by fully navigable, high-quality 3D models!
 
-**Features:**
-- **🌍 Multi-Era AR Simulation**: View interactive reconstructions of landmarks like Quba Mosque and Ain Zubaida.
-- **🎙️ Neural Voice Narrator**: High-quality, perfectly-synced AI narrators telling the stories of these landmarks in fluent Arabic and English.
-- **🎮 Interactive 3D Movement**: Use an on-screen D-Pad or touch/drag controls to physically explore the historical space inside the AR layer.
-- **📜 Gamified Explorer Passport**: Collect unique stamps in your digital passport when visiting physical locations.
-- **🌐 Bilingual UI**: Seamlessly switch between Arabic (RTL) and English (LTR).
+**Key Features:**
+- **AR View:** Look around a 360-degree historical environment overlaid on the real world.
+- **Audio Guides:** Listen to narrations explaining the history of each location. The audio integration and triggers will be further refined and improved soon.
+- **Interactive Exploration:** Move around inside the 3D environment to look at specific details.
+- **Digital Passport:** Collect stamps in the app when you visit different historical sites.
+- **Languages:** Fully supports both Arabic and English interfaces. More languages will be coming in the future!
 
 ---
 
-### 🤝 Project Co-Founders
-This project is officially a **joint collaboration** resulting from shared efforts.
+### Project Co-Founders
+This project is a joint collaboration.
 
 **Contributors:**
-- **fahilaly:**
-- **alftaa:**
-
-
-*All visual assets, algorithms, logic, and audio recordings were developed jointly within the Atlal team.*
+- fahilaly
+- alftaa
