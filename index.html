@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>أطلال | بوابة الزمن</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-logo" onclick="navTo('home')" style="cursor:pointer;">
+                <span class="logo-text" data-i18n="logo">أطـــلال</span>
+            </div>
+            <div class="header-user">
+                <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">EN</button>
+                <div class="points-badge"><span id="user-points">١,٢٥٠</span><i class="ri-copper-coin-fill text-gold"></i></div>
+                <div class="avatar-box male user-avatar"><i class="ri-user-fill"></i></div>
+            </div>
+        </header>
+        <main id="app-view"></main>
+        <nav class="bottom-nav">
+            <div class="nav-items">
+                <div class="nav-item active" data-target="home" onclick="navTo('home')"><i class="ri-compass-3-line"></i><span data-i18n="nav-explore">استكشف</span></div>
+                <div class="nav-item" data-target="passport" onclick="navTo('passport')"><i class="ri-book-mark-line"></i><span data-i18n="nav-passport">جوازي</span></div>
+                <div class="nav-center-btn" onclick="scanSite('quba')"><div class="ar-button"><i class="ri-camera-lens-fill"></i></div></div>
+                <div class="nav-item" data-target="leaderboard" onclick="navTo('leaderboard')"><i class="ri-medal-2-line"></i><span data-i18n="nav-achievements">الإنجازات</span></div>
+                <div class="nav-item" data-target="profile" onclick="navTo('profile')"><i class="ri-user-settings-line"></i><span data-i18n="nav-account">حسابي</span></div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HOME -->
+    <template id="tpl-home">
+        <div class="page-content animation-fade">
+            <div class="welcome-text">
+                <h2 data-i18n="home-title">اكتشف عبق الماضي</h2>
+                <p data-i18n="home-subtitle">وجه كاميرتك نحو المعالم التاريخية وشاهدها كما كانت عبر الواقع المعزز</p>
+            </div>
+            <div class="gps-indicator"><span class="gps-dot"></span><span data-i18n="gps-active">GPS نشط</span></div>
+
+            <!-- Featured: Quba Mosque -->
+            <div class="featured-card" onclick="goToSite('quba')">
+                <div class="card-art quba-art">
+                    <div class="ar-badge"><i class="ri-cpu-line"></i> <span data-i18n="ar-support-badge">واقع معزز + ذكاء اصطناعي</span></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="era-tag" data-i18n="era-prophetic">العهد النبوي</span>
+                        <span class="dist-tag"><i class="ri-map-pin-line"></i> <span data-i18n="location-madinah">المدينة المنورة</span></span>
+                    </div>
+                    <h3 data-i18n="quba-mosque">مسجد قباء</h3>
+                    <p data-i18n="quba-mosque-desc">أول مسجد بُني في الإسلام، أسسه النبي ﷺ عند وصوله المدينة المنورة.</p>
+                </div>
+            </div>
+
+            <!-- Nearby -->
+            <div class="section-title">
+                <h3 data-i18n="nearby-title">معالم قريبة منك</h3>
+                <span class="status-dot green"></span>
+            </div>
+            <div class="nearby-list">
+                <!-- Ain Zubaida — fully working -->
+                <div class="nearby-item" onclick="goToSite('ain')">
+                    <div class="item-icon-box makkah-art"></div>
+                    <div class="item-text">
+                        <h4 data-i18n="ain-zubaida">عين زبيدة</h4>
+                        <div class="item-meta">
+                            <span data-i18n="ain-info">مكة المكرمة</span>
+                            <span class="crowd-badge crowd-quiet"><i class="ri-user-line"></i> <span data-i18n="crowd-quiet">هادئ</span></span>
+                        </div>
+                    </div>
+                    <div class="item-end">
+                        <span class="distance-badge" data-i18n="ain-distance">٤٥٠ كم</span>
+                        <i class="ri-arrow-left-s-line arrow-icon"></i>
+                    </div>
+                </div>
+                <!-- Hejaz Train — coming soon -->
+                <div class="nearby-item" onclick="showComingSoon()">
+                    <div class="item-icon-box train-art"></div>
+                    <div class="item-text">
+                        <h4 data-i18n="hejaz-train">محطة قطار الحجاز</h4>
+                        <div class="item-meta">
+                            <span data-i18n="hejaz-info">المدينة المنورة</span>
+                            <span class="crowd-badge crowd-busy"><i class="ri-group-line"></i> <span data-i18n="crowd-busy">مزدحم</span></span>
+                        </div>
+                    </div>
+                    <div class="item-end">
+                        <span class="distance-badge" data-i18n="hejaz-distance">٤.٧ كم</span>
+                        <i class="ri-arrow-left-s-line arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- SCANNER — dynamic, just a stub -->
+    <template id="tpl-scanner"><div></div></template>
+
+    <!-- DETAILS — dynamic, just a stub -->
+    <template id="tpl-details"><div></div></template>
+
+    <!-- AR — dynamic, just a stub -->
+    <template id="tpl-ar"><div></div></template>
+
+    <!-- PASSPORT -->
+    <template id="tpl-passport">
+        <div class="page-content animation-fade">
+            <div class="welcome-text align-center">
+                <h2 data-i18n="passport-title">الجواز التاريخي</h2>
+                <p data-i18n="passport-subtitle">وثيقة توثيق إنجازاتك في أطلال</p>
+            </div>
+            <div class="passport-book">
+                <div class="binding"></div>
+                <div class="stamps-grid">
+                    <div class="stamp-slot has-stamp"><div class="stamp brown-stamp"><i class="ri-building-line"></i><div class="stamp-txt" data-i18n="stamp-quba">مسجد قباء</div><div class="stamp-date" data-i18n="stamp-year">٢٠٢٦ م</div></div></div>
+                    <div class="stamp-slot has-stamp"><div class="stamp gold-stamp"><i class="ri-route-fill"></i><div class="stamp-txt" data-i18n="stamp-ain">عين زبيدة</div><div class="stamp-date" data-i18n="stamp-year">٢٠٢٦ م</div></div></div>
+                    <div class="stamp-slot empty"><span data-i18n="stamp-empty">موقع مفقود</span></div>
+                    <div class="stamp-slot empty"></div><div class="stamp-slot empty"></div><div class="stamp-slot empty"></div>
+                </div>
+            </div>
+            <div class="passport-summary">
+                <div class="sum-item"><h3 data-i18n="sum-sites-num">٢</h3><p data-i18n="sum-sites">مواقع</p></div>
+                <div class="sum-item"><h3 data-i18n="sum-badges-num">٣</h3><p data-i18n="sum-badges">أوسمة</p></div>
+                <div class="sum-item"><h3 class="text-gold" data-i18n="sum-rank-num">#١٥٤</h3><p data-i18n="sum-rank">ترتيبك</p></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- LEADERBOARD -->
+    <template id="tpl-leaderboard">
+        <div class="page-content animation-fade">
+            <div class="welcome-text align-center">
+                <h2 data-i18n="leaderboard-title">لوحة النخبة</h2>
+                <p data-i18n="leaderboard-subtitle">أكثر الرحالة استكشافاً للتاريخ</p>
+            </div>
+            <div class="podium-wrapper">
+                <div class="podium p-2"><div class="avatar-box female border-silver"><i class="ri-user-fill"></i><span class="rank-badge silver" data-i18n="rank-2">٢</span></div><h5 data-i18n="name-sarah">سارة</h5><div class="bar silver-bg"></div></div>
+                <div class="podium p-1"><i class="ri-vip-crown-fill crown"></i><div class="avatar-box male border-gold"><i class="ri-user-star-fill"></i><span class="rank-badge gold" data-i18n="rank-1">١</span></div><h5 data-i18n="name-ahmed">أحمد</h5><div class="bar gold-bg"></div></div>
+                <div class="podium p-3"><div class="avatar-box male border-bronze"><i class="ri-user-fill"></i><span class="rank-badge bronze" data-i18n="rank-3">٣</span></div><h5 data-i18n="name-khaled">خالد</h5><div class="bar bronze-bg"></div></div>
+            </div>
+            <div class="leaderboard-list">
+                <div class="list-item"><div class="rank text-light" data-i18n="rank-4">٤</div><div class="avatar-box female mini"><i class="ri-user-fill"></i></div><div class="name" data-i18n="name-noura">نورة ش.</div><div class="score" data-i18n="score-noura">٣,٦٠٠</div></div>
+                <div class="list-item"><div class="rank text-light" data-i18n="rank-5">٥</div><div class="avatar-box male mini"><i class="ri-user-fill"></i></div><div class="name" data-i18n="name-omar">عمر م.</div><div class="score" data-i18n="score-omar">٣,٢٠٠</div></div>
+                <div class="list-item current"><div class="rank text-brand" data-i18n="rank-154">١٥٤</div><div class="avatar-box male mini border-brand"><i class="ri-user-fill"></i></div><div class="name"><span data-i18n="you-label">أنت</span> <span class="tag-small" data-i18n="beginner-tag">مبتدئ</span></div><div class="score text-brand" data-i18n="score-you">١,٢٥٠</div></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- PROFILE -->
+    <template id="tpl-profile">
+        <div class="page-content animation-fade" style="text-align:center;padding-top:4rem;">
+            <i class="ri-tools-line text-gold" style="font-size:4rem;"></i>
+            <h2 class="mt-1" data-i18n="profile-title">الملف الشخصي</h2>
+            <p class="text-light" data-i18n="profile-wip">قيد التطوير حالياً...</p>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
