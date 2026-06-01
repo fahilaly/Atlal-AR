@@ -6,6 +6,7 @@
 
 ### About The Project
 ***Note: This application is currently a prototype.***
+
 Prototype Site: [View Live Prototype](https://fahilaly.github.io/Atlal-AR/)
 Atlal is a mobile web application that lets users explore historical locations using Augmented Reality (AR). By pointing your phone's camera at specific sites, you can see a historical reconstruction of the landmark. In future releases, the current 360-degree photos will be completely replaced by fully navigable, high-quality 3D models!
 
